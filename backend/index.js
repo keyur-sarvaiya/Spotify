@@ -27,9 +27,12 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-
 app.use("/api/user", userRoutes);
 app.use("/api/song", songRoutes);
+
+app.get((req,res) => {
+  res.json({message: "Welcome to Spotify Backend."})
+})
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
