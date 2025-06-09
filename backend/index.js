@@ -30,7 +30,7 @@ app.use(cookieParser());
 app.use("/api/user", userRoutes);
 app.use("/api/song", songRoutes);
 
-app.get((req,res) => {
+app.get("/", (req,res) => {
   res.json({message: "Welcome to Spotify Backend."})
 })
 
