@@ -8,8 +8,10 @@ const generateToken = (id, res) => {
   res.cookie("token", token, {
     maxAge: 15 * 24 * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: "strict",
+    secure: true,            // required for SameSite: None
+    sameSite: "None",        // allows cross-origin cookie sharing
   });
+
 };
 
 export default generateToken;
