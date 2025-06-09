@@ -63,13 +63,13 @@ const PlayList = ({ user }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7]">
+      <div className="grid grid-cols-2 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7]">
         <p>
           <b className="mr-4">#</b>
         </p>
-        <p>Artist</p>
+        <p className="hidden sm:block">Artist</p>
         <p className="hidden sm:block">Description</p>
-        <p className="text-center">Actions</p>
+        <p className="text-end sm:text-center mr-2 sm:mr-0">Actions</p>
       </div>
       <hr />
 
@@ -79,10 +79,10 @@ const PlayList = ({ user }) => {
 
           return (
             <div
-              className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer"
+              className="grid grid-cols-2 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer items-center"
               key={i}
             >
-              <p className="text-white">
+              <p className="text-white flex items-center">
                 <b className="mr-4 text-[#a7a7a7]">{i + 1}</b>
                 <img
                   src={e.thumbnail.url}
@@ -91,11 +91,11 @@ const PlayList = ({ user }) => {
                 />
                 {e.title}
               </p>
-              <p className="text-[15px]">{e.singer}</p>
+              <p className="text-[15px] hidden sm:block">{e.singer}</p>
               <p className="text-[15px] hidden sm:block">
                 {e.description.slice(0, 20)}...
               </p>
-              <p className="flex justify-center items-center gap-5">
+              <div className="flex justify-end sm:justify-center items-center mr-2 sm:mr-0 gap-5">
                 <span
                   className="text-[15px] text-center"
                   onClick={() => savePlayListHandler(e._id)}
@@ -108,7 +108,7 @@ const PlayList = ({ user }) => {
                 >
                   {isActive ? <FaPause /> : <FaPlay />}
                 </span>
-              </p>
+              </div>
             </div>
           );
         })}

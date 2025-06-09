@@ -59,13 +59,13 @@ const Album = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7] ">
+          <div className="grid grid-cols-2 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7]">
             <p>
               <b className="mr-4">#</b>
             </p>
-            <p>Artist</p>
+            <p className="hidden sm:block">Artist</p>
             <p className="hidden sm:block">Description</p>
-            <p className="text-center">Actions</p>
+            <p className="text-end sm:text-center mr-2 sm:mr-0">Actions</p>
           </div>
 
           <hr />
@@ -76,7 +76,7 @@ const Album = () => {
               return (
                 <div
                   key={i}
-                  className={`grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7] cursor-pointer
+                  className={`grid grid-cols-2 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7] cursor-pointer
                     ${isActive
                       ? "bg-[#ffffff2b]"
                       : "hover:bg-[#5221212b]"
@@ -92,11 +92,11 @@ const Album = () => {
                     />
                     {e.title}
                   </p>
-                  <p className="text-[15px] flex items-center">{e.singer}</p>
+                  <p className="text-[15px] hidden sm:flex items-center">{e.singer}</p>
                   <p className="text-[15px] hidden sm:flex items-center">
                     {e.description.slice(0, 20)}...
                   </p>
-                  <div className="flex justify-center items-center gap-5">
+                  <div className="flex justify-end sm:justify-center mr-2 sm:mr-0 items-center gap-5">
                     <span
                       className="text-[15px] text-center cursor-pointer"
                       onClick={() => savetoPlaylistHandler(e._id)}
